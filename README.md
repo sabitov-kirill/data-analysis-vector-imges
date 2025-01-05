@@ -19,6 +19,11 @@ Images will be placed in `out/` folder
 
 ## Vectorized Pictures List
 
+### Splitting into Groups for Cross-Validation
+
+![groups](./out/cross-validation.svg)
+![groups with time](./out/cross-validation-with-time.svg)
+
 ### Voronoi diagram
 
 ![Voronoi diagram vectorized image](./out//voronoi.svg)
