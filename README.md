@@ -9,7 +9,7 @@ lectures presentations.
 
 ## Generation instructions
 
-In order to build all images run
+In order to regenerate all images run
 
 ```sh
 make
@@ -27,3 +27,7 @@ Images will be placed in `out/` folder
 ### Voronoi diagram
 
 ![Voronoi diagram vectorized image](./out//voronoi.svg)
+
+### kD-Tree
+
+![kd-tree visualization](./out/kdtree.svg)
