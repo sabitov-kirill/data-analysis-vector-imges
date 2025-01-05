@@ -15,7 +15,18 @@ In order to regenerate all images run
 make
 ```
 
-Images will be placed in `out/` folder
+Images will be placed in `out/` folder.
+
+*Note:* Some scripts requires latex installation. In order to install it on 
+Ubuntu (tested on Ubuntu 24.04), run:
+
+```sh
+sudo apt-get install \
+  texlive \
+  texlive-latex-extra \
+  texlive-fonts-recommended \
+  cm-super
+```
 
 ## Vectorized Pictures List
 
@@ -31,3 +42,7 @@ Images will be placed in `out/` folder
 ### kD-Tree
 
 ![kd-tree visualization](./out/kdtree.svg)
+
+### Hat Loss Function
+
+![hat loss function plot](./out/hat_loss.svg)
