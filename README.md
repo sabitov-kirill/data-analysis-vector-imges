@@ -43,18 +43,22 @@ sudo apt-get install \
 
 ![kd-tree visualization](./out/kdtree.svg)
 
+### Regularizations illustration
+
+![riedge and lasso regularizations](./out/regularizations.svg)
+
 ### Hat Loss Function
 
 ![hat loss function plot](./out/hat_loss.svg)
 
 ### Bayes Dividing Surface
 
-![Circular close example](./out/bayes-circular-close.svg)
-![Contained classes example](./out/bayes-contained.svg)
-![Crossed classes example](./out/bayes-crossed.svg)
-![Default case example](./out/bayes-default.svg)
-![Nested classes example](./out/bayes-nested.svg)
-![Rotated classes example](./out/bayes-rotated.svg)
+![Circular close example](./out/bayes-circular-close.png)
+![Contained classes example](./out/bayes-contained.png)
+![Crossed classes example](./out/bayes-crossed.png)
+![Default case example](./out/bayes-default.png)
+![Nested classes example](./out/bayes-nested.png)
+![Rotated classes example](./out/bayes-rotated.png)
 
 ### Decision Trees Comparison by Max Depth
 

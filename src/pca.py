@@ -59,6 +59,7 @@ def main():
     plt.ylabel('y')
     plt.grid(False)
     plt.axis('equal')
+
     plt.tight_layout()
     plt.savefig(args.out, format='svg', bbox_inches='tight')
     plt.close()

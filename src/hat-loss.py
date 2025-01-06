@@ -5,7 +5,7 @@ import argparse
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Plot hat loss function')
-    parser.add_argument('--output', type=str, default='out/hat_loss.svg')
+    parser.add_argument('--output', type=str, default='out/hat-loss.svg')
     parser.add_argument('--figsize', type=float, nargs=2, default=(4, 4))
     parser.add_argument('--xlim', type=float, nargs=2, default=(-2, 2))
     parser.add_argument('--ylim', type=float, nargs=2, default=(0, 3))
