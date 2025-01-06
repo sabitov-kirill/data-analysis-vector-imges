@@ -60,6 +60,15 @@ sudo apt-get install \
 ![Nested classes example](./out/bayes-nested.png)
 ![Rotated classes example](./out/bayes-rotated.png)
 
+### Bayes Network Example
+
+![bayes network example with life conditions](./out/bayes-network.drawio.svg)
+
+### Decision Tree Example Diagrams
+
+![big tree](./out/decision-tree-big.drawio.svg)
+![small tree](./out/decision-tree-small.drawio.svg)
+
 ### Decision Trees Comparison by Max Depth
 
 ![decision trees with depth 2, 5](./out/decision-tree-depth.svg)
