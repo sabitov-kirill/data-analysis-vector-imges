@@ -37,7 +37,7 @@ sudo apt-get install \
 
 ### Voronoi diagram
 
-![Voronoi diagram vectorized image](./out//voronoi.svg)
+![Voronoi diagram vectorized image](./out/voronoi.svg)
 
 ### kD-Tree
 
@@ -46,3 +46,12 @@ sudo apt-get install \
 ### Hat Loss Function
 
 ![hat loss function plot](./out/hat_loss.svg)
+
+### Bayes Dividing Surface
+
+![Circular close example](./out/bayes-circular-close.svg)
+![Contained classes example](./out/bayes-contained.svg)
+![Crossed classes example](./out/bayes-crossed.svg)
+![Default case example](./out/bayes-default.svg)
+![Nested classes example](./out/bayes-nested.svg)
+![Rotated classes example](./out/bayes-rotated.svg)
