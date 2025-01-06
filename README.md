@@ -51,7 +51,7 @@ sudo snap install drawio
 
 ### Hat Loss Function
 
-![hat loss function plot](./out/hat_loss.svg)
+![hat loss function plot](./out/hat-loss.svg)
 
 ### Bayes Dividing Surface
 
