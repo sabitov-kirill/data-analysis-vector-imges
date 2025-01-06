@@ -2,12 +2,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 import argparse
 
+from common import save_plt, setup_plotting_style
+
 
 def parse_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('--n_points', type=int, default=25)
     parser.add_argument('--mean', nargs=2, type=float, default=[0.5, 0.5])
-    parser.add_argument('--cov', nargs=4, type=float, default=[0.7, 0.45, 0.45, 0.5])
+    parser.add_argument('--cov', nargs=4, type=float,
+                        default=[0.7, 0.45, 0.45, 0.5])
     parser.add_argument('--out', default='out/pca.svg')
     parser.add_argument('--seed', type=int, default=30)
     return parser.parse_args()
@@ -42,6 +45,11 @@ def plot_pca(data, principal_direction, data_mean):
         plt.plot([point[0], end_point[0]], [
                  point[1], end_point[1]], 'g--', alpha=0.3)
 
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.grid(False)
+    plt.axis('equal')
+
 
 def main():
     args = parse_arguments()
@@ -53,16 +61,10 @@ def main():
 
     principal_direction = calculate_pca(data)
     data_mean = np.mean(data, axis=0)
+
+    setup_plotting_style()
     plot_pca(data, principal_direction, data_mean)
-
-    plt.xlabel('x')
-    plt.ylabel('y')
-    plt.grid(False)
-    plt.axis('equal')
-
-    plt.tight_layout()
-    plt.savefig(args.out, format='svg', bbox_inches='tight')
-    plt.close()
+    save_plt(args.out)
 
 
 if __name__ == "__main__":

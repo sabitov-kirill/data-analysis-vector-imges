@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import argparse
 
+from common import setup_plotting_style
+
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
@@ -11,7 +13,7 @@ def parse_arguments():
     parser.add_argument('--row-spacing', type=float, default=0.2)
     parser.add_argument('--rect-height', type=float, default=0.5)
     parser.add_argument('--slice_rows', action='store_true')
-    parser.add_argument('--output', type=str,
+    parser.add_argument('--out', type=str,
                         default='out/cross-validation.svg')
 
     args = parser.parse_args()
@@ -48,6 +50,7 @@ def draw_cross_validation_groups(rows, columns, row_spacing, rect_height, slice_
 def main():
     args = parse_arguments()
 
+    setup_plotting_style()
     fig = draw_cross_validation_groups(
         rows=args.rows,
         columns=args.columns,
@@ -55,7 +58,7 @@ def main():
         rect_height=args.rect_height,
         slice_rows=args.slice_rows
     )
-    fig.savefig(args.output, format='svg', bbox_inches='tight')
+    fig.savefig(args.out, format='svg', bbox_inches='tight')
 
 
 if __name__ == '__main__':

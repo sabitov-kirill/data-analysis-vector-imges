@@ -4,6 +4,8 @@ import argparse
 import os
 from scipy.spatial import Voronoi, voronoi_plot_2d
 
+from common import save_plt
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Generate Voronoi diagram')
@@ -11,7 +13,7 @@ def parse_args():
     parser.add_argument('--min-val', type=float, default=0)
     parser.add_argument('--max-val', type=float, default=1)
     parser.add_argument('--seed', type=int, default=47)
-    parser.add_argument('--output', type=str, default='out/voronoi.svg')
+    parser.add_argument('--out', type=str, default='out/voronoi.svg')
     args = parser.parse_args()
 
     if args.min_val >= args.max_val:
@@ -25,8 +27,6 @@ def parse_args():
 def main():
     args = parse_args()
 
-    os.makedirs(os.path.dirname(args.output), exist_ok=True)
-
     np.random.seed(args.seed)
     points = np.random.uniform(
         args.min_val,
@@ -37,8 +37,7 @@ def main():
     vor = Voronoi(points)
     _ = voronoi_plot_2d(vor, show_vertices=False, point_size=10)
     plt.axis('off')
-    plt.savefig(args.output, format='svg', bbox_inches='tight')
-    plt.close()
+    save_plt(args.out)
 
 
 if __name__ == "__main__":

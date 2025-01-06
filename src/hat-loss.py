@@ -2,10 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import argparse
 
+from common import save_plt, setup_plotting_style
+
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Plot hat loss function')
-    parser.add_argument('--output', type=str, default='out/hat-loss.svg')
+    parser.add_argument('--out', type=str, default='out/hat-loss.svg')
     parser.add_argument('--figsize', type=float, nargs=2, default=(4, 4))
     parser.add_argument('--xlim', type=float, nargs=2, default=(-2, 2))
     parser.add_argument('--ylim', type=float, nargs=2, default=(0, 3))
@@ -22,7 +24,7 @@ def main():
     x = np.linspace(args.xlim[0], args.xlim[1], 1000)
     y = hat_loss(x)
 
-    plt.rcParams['text.usetex'] = True
+    setup_plotting_style()
     plt.figure(figsize=args.figsize)
     plt.plot(x, y, 'b-', linewidth=2, label='$(1-|f(x_i)|)_+$')
 
@@ -33,8 +35,7 @@ def main():
     plt.grid(False)
     plt.legend()
 
-    plt.savefig(args.output, format='svg', bbox_inches='tight')
-    plt.close()
+    save_plt(args.out)
 
 
 if __name__ == '__main__':

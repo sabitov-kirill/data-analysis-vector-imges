@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 from sklearn.tree import DecisionTreeRegressor
 import argparse
 
+from common import save_plt, setup_plotting_style
+
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
@@ -31,6 +33,7 @@ def main():
     outliers = np.random.choice(len(y), args.n_outliers, replace=False)
     y[outliers] += np.random.uniform(*args.outliers_lim, args.n_outliers)
 
+    setup_plotting_style()
     plt.figure(figsize=(10, 8))
     plt.scatter(X, y, color='black', s=10, label='Data')
 
@@ -46,9 +49,7 @@ def main():
     plt.xlabel('x')
     plt.ylabel('y')
     plt.legend()
-    plt.tight_layout()
-    plt.savefig(args.out, bbox_inches='tight', format='svg')
-    plt.close()
+    save_plt(args.out)
 
 
 if __name__ == "__main__":

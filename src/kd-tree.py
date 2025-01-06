@@ -3,6 +3,8 @@ from sklearn.neighbors import KDTree
 import matplotlib.pyplot as plt
 import argparse
 
+from common import save_plt, setup_plotting_style
+
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
@@ -16,7 +18,7 @@ def parse_arguments():
     parser.add_argument('--seed', type=int, default=11001)
     parser.add_argument('--max_draw_depth', type=int, default=10)
     parser.add_argument('--figsize', type=int, default=5)
-    parser.add_argument('--output', default='out/kdtree.svg')
+    parser.add_argument('--out', default='out/kdtree.svg')
     return parser.parse_args()
 
 
@@ -46,7 +48,7 @@ def plot_kdtree(points, tree, x_bounds, y_bounds, max_draw_depth, depth=0):
             next_x_bounds = new_bound if axis == 0 else x_bounds
             next_y_bounds = new_bound if axis == 1 else y_bounds
             plot_kdtree(points[curr_mask], tree, next_x_bounds, next_y_bounds,
-                       max_draw_depth, depth + 1)
+                        max_draw_depth, depth + 1)
 
 
 def visualize_neighbors(tree, test_point, k):
@@ -54,19 +56,19 @@ def visualize_neighbors(tree, test_point, k):
     indices = indices.flatten()
     distances = distances.flatten()
     neighbors = np.array([tree.data[i] for i in indices])
-    
+
     # Neighbors
     plt.scatter(neighbors[:, 0], neighbors[:, 1], c='purple', s=100, zorder=3)
-    
+
     # Distance
-    plt.gca().add_patch(plt.Circle(test_point, distances[-1], 
-                                  fill=False, color='purple', ls='--', zorder=1))
-    plt.plot([test_point[0], neighbors[-1, 0]], 
-            [test_point[1], neighbors[-1, 1]], ':', c='purple', zorder=2)
-    
+    plt.gca().add_patch(plt.Circle(test_point, distances[-1],
+                                   fill=False, color='purple', ls='--', zorder=1))
+    plt.plot([test_point[0], neighbors[-1, 0]],
+             [test_point[1], neighbors[-1, 1]], ':', c='purple', zorder=2)
+
     # Test point
-    plt.scatter(*test_point, c='red', marker='*', s=200, zorder=4, 
-               edgecolors='black', lw=0.5)
+    plt.scatter(*test_point, c='red', marker='*', s=200, zorder=4,
+                edgecolors='black', lw=0.5)
 
 
 def main():
@@ -80,8 +82,9 @@ def main():
 
     padding = (args.max_val - args.min_val) * 0.05
     limits = (args.min_val - padding, args.max_val + padding)
-    plt.figure(figsize=(args.figsize, args.figsize))
 
+    setup_plotting_style()
+    plt.figure(figsize=(args.figsize, args.figsize))
     plot_kdtree(points, tree, x_bounds=(args.min_val, args.max_val),
                 y_bounds=(args.min_val, args.max_val), max_draw_depth=args.max_draw_depth)
     visualize_neighbors(tree, test_point, args.k)
@@ -90,7 +93,8 @@ def main():
     plt.ylim(*limits)
     plt.scatter(points[:, 0], points[:, 1], c='black', s=100, zorder=2)
     plt.axis('off')
-    plt.savefig(args.output, format='svg', bbox_inches='tight')
+
+    save_plt(args.out)
 
 
 if __name__ == '__main__':

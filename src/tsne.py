@@ -3,8 +3,10 @@ import matplotlib.pyplot as plt
 import argparse
 from scipy.stats import t, norm
 
+from common import save_plt, setup_plotting_style
 
-def plot_distributions(out=None, figsize=(10, 6)):
+
+def plot_distributions(figsize=(10, 6)):
     x = np.linspace(-4, 4, 1000)
     p_dist = norm.pdf(x, loc=0, scale=1)
     q_dist = t.pdf(x, df=1, loc=0, scale=1)
@@ -17,8 +19,6 @@ def plot_distributions(out=None, figsize=(10, 6)):
     plt.ylabel('f(x)')
     plt.legend()
 
-    plt.savefig(out)
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Plot t-SNE distributions')
@@ -26,4 +26,6 @@ if __name__ == "__main__":
     parser.add_argument('--figsize', type=int, nargs=2, default=(10, 6))
     args = parser.parse_args()
 
-    plot_distributions(out=args.out, figsize=args.figsize)
+    setup_plotting_style()
+    plot_distributions(figsize=args.figsize)
+    save_plt(args.out)
