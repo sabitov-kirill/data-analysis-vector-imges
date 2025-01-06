@@ -3,7 +3,7 @@ PYTHON := $(VENV)/bin/python3
 PIP := $(VENV)/bin/pip
 OUT := out
 
-all: voronoi crossvalidation kd-tree regularizations hat-loss bayes defision-tree-depth pca tsne
+all: voronoi crossvalidation kd-tree regularizations hat-loss bayes defision-tree-depth pca tsne drawio
 
 $(VENV)/bin/activate: requirements.txt
 	python3 -m venv $(VENV)
@@ -44,6 +44,9 @@ pca: $(VENV)/bin/activate $(OUT)
 
 tsne: $(VENV)/bin/activate $(OUT)
 	$(PYTHON) src/tsne.py
+
+drawio: diagrams/
+	drawio -r --crop --export --format svg --output out/ diagrams/
 
 clean:
 	rm -rf $(VENV)

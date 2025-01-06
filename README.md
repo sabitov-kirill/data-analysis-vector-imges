@@ -17,7 +17,7 @@ make
 
 Images will be placed in `out/` folder.
 
-*Note:* Some scripts requires latex installation. In order to install it on 
+*Note:* Some scripts requires LaTeX and drawio installation. In order to install it on 
 Ubuntu (tested on Ubuntu 24.04), run:
 
 ```sh
@@ -26,6 +26,8 @@ sudo apt-get install \
   texlive-latex-extra \
   texlive-fonts-recommended \
   cm-super
+
+sudo snap install drawio
 ```
 
 ## Vectorized Pictures List
@@ -62,12 +64,12 @@ sudo apt-get install \
 
 ### Bayes Network Example
 
-![bayes network example with life conditions](./out/bayes-network.drawio.svg)
+![bayes network example with life conditions](./out/bayes-network.svg)
 
 ### Decision Tree Example Diagrams
 
-![big tree](./out/decision-tree-big.drawio.svg)
-![small tree](./out/decision-tree-small.drawio.svg)
+![big tree](./out/decision-tree-big.svg)
+![small tree](./out/decision-tree-small.svg)
 
 ### Decision Trees Comparison by Max Depth
 

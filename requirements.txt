@@ -1,4 +1,7 @@
 matplotlib
 plotly
+kaleido
 numpy
 scikit-learn
+scikit-image
+pandas
