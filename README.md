@@ -55,3 +55,7 @@ sudo apt-get install \
 ![Default case example](./out/bayes-default.svg)
 ![Nested classes example](./out/bayes-nested.svg)
 ![Rotated classes example](./out/bayes-rotated.svg)
+
+### PCA 2D
+
+![pca visualization](./out/pca.svg)
