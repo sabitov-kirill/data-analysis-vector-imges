@@ -2,7 +2,7 @@ VENV := .venv
 PYTHON := $(VENV)/bin/python3
 PIP := $(VENV)/bin/pip
 
-all: voronoi crossvalidation kd-tree hat-loss bayes
+all: voronoi crossvalidation kd-tree hat-loss bayes defision-tree-depth pca
 
 $(VENV)/bin/activate: requirements.txt
 	python3 -m venv $(VENV)
@@ -28,6 +28,15 @@ bayes: $(VENV)/bin/activate
 	$(PYTHON) src/bayes-dividing-surface.py save --out=out/bayes-nested.svg --mean1 0 0 --mean2 0 0 --cov1 1 0 0 1 --cov2 2 0 0 2 --xlim -2 2 --ylim -2 2
 	$(PYTHON) src/bayes-dividing-surface.py save --out=out/bayes-crossed.svg --mean1 0 0 --mean2 0 0 --cov1 2 1 1 1 --cov2 1 -1 -1 2 --xlim -2 2 --ylim -2 2
 	$(PYTHON) src/bayes-dividing-surface.py save --out=out/bayes-contained.svg --mean1 0 0 --mean2 0 0 --cov1 2 0 0 2 --cov2 2 1 1 1 --xlim -2 2 --ylim -2 2 --eye 1.5 -2 0.25
+
+defision-tree-depth: $(VENV)/bin/activate
+	$(PYTHON) src/decision-tree-depth.py
+
+pca: $(VENV)/bin/activate
+	$(PYTHON) src/pca.py
+
+tsne: $(VENV)/bin/activate
+	$(PYTHON) src/tsne.py
 
 clean:
 	rm -rf $(VENV)

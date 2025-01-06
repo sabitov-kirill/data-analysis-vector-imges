@@ -56,6 +56,14 @@ sudo apt-get install \
 ![Nested classes example](./out/bayes-nested.svg)
 ![Rotated classes example](./out/bayes-rotated.svg)
 
+### Decision Trees Comparison by Max Depth
+
+![decision trees with depth 2, 5](./out/decision-tree-depth.svg)
+
 ### PCA 2D
 
 ![pca visualization](./out/pca.svg)
+
+### Distributions, used in t-SNE
+
+![tsne distributions](./out/tsne-distributions.svg)
